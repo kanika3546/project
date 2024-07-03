@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchCount } from './authAPI';
 
+
 const initialState = {
   value: 0,
   status: 'idle',

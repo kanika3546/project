@@ -54,7 +54,7 @@ const addresses = [
     state: "Maharashtra",
     phone: 12574845645,
   },
-];
+]
 
 function Checkout() {
   return (
@@ -241,7 +241,7 @@ function Checkout() {
                   Address
                 </h2>
                 <p className="mt-1 text-sm leading-6 text-gray-600">
-                  Choose from existing address
+                  Choose from Existing Addresses
                 </p>
 
                 <ul role="list" >
@@ -252,7 +252,6 @@ function Checkout() {
                     >
                       <div className="flex min-w-0 gap-x-4">
                       <input
-                          
                           name="address"
                           type="radio"
                           className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
@@ -274,11 +273,10 @@ function Checkout() {
                              Phone: {address.phone}
                             </p>
                             <p className="text-sm leading-6 text-gray-600">
-                             City {address.city}
+                             City: {address.city}
                             </p>
                           </div>
-                        
-                   
+                  
                     </li>
                   ))}
                 </ul>
@@ -338,6 +336,7 @@ function Checkout() {
               <div className="flow-root">
                 <ul role="list" className="-my-6 divide-y divide-gray-200">
                   {products.map((product) => (
+                   
                     <li key={product.id} className="flex py-6">
                       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                         <img

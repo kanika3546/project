@@ -50,9 +50,7 @@ function App() {
     <div className="App">
     <RouterProvider router={router} />
     {/* <Home></Home> */}
-   {/* <LoginPage></LoginPage>  */}
-   
-   {/* <SignupPage></SignupPage> */}
+
     </div>
   );
 }
