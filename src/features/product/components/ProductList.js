@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   fetchAllProductsAsync,
   selectAllProducts,
-  fetchProductsByFiltersAsync
-  
+  fetchProductsByFiltersAsync,
 } from "../productSlice";
 import {
   ChevronLeftIcon,
@@ -36,107 +35,96 @@ import {
 } from "@heroicons/react/20/solid";
 
 const sortOptions = [
-  { name: "Most Popular", href: "#", current: true },
-  { name: "Best Rating", href: "#", current: false },
-  { name: "Newest", href: "#", current: false },
-  { name: "Price: Low to High", href: "#", current: false },
-  { name: "Price: High to Low", href: "#", current: false },
+
+  { name: "Best Rating", sort:'rating' ,  order:'desc' , current: false },
+  { name: "Price: Low to High", sort: 'price', order: 'asc',  current: false },
+  { name: "Price: High to Low", sort:'price', order: 'desc' ,  current: false },
 ];
 
 const filters = [
   {
-  id: "category",
-  name: "Category",
-  options: [
-    { value: 'beauty', label: 'beauty', checked: false },
-    { value: 'fragrances', label: 'fragrances', checked: false },
-    { value: 'furniture', label: 'furniture', checked: false },
-    { value: 'groceries', label: 'groceries', checked: false },
-    {
-      value: 'home-decoration',
-      label: 'home decoration',
-      checked: false
-    },
-    {
-      value: 'kitchen-accessories',
-      label: 'kitchen accessories',
-      checked: false
-    },
-    { value: 'laptops', label: 'laptops', checked: false },
-    { value: 'mens-shirts', label: 'mens shirts', checked: false },
-    { value: 'mens-shoes', label: 'mens shoes', checked: false },
-    { value: 'mens-watches', label: 'mens watches', checked: false },
-    {
-      value: 'mobile-accessories',
-      label: 'mobile accessories',
-      checked: false
-    }
-  ],
-},
+    id: "category",
+    name: "Category",
+    options: [
+      { value: "beauty", label: "beauty", checked: false },
+      { value: "fragrances", label: "fragrances", checked: false },
+      { value: "furniture", label: "furniture", checked: false },
+      { value: "groceries", label: "groceries", checked: false },
+      {
+        value: "home-decoration",
+        label: "home decoration",
+        checked: false,
+      },
+      {
+        value: "kitchen-accessories",
+        label: "kitchen accessories",
+        checked: false,
+      },
+      { value: "laptops", label: "laptops", checked: false },
+      { value: "mens-shirts", label: "mens shirts", checked: false },
+      { value: "mens-shoes", label: "mens shoes", checked: false },
+      { value: "mens-watches", label: "mens watches", checked: false },
+      {
+        value: "mobile-accessories",
+        label: "mobile accessories",
+        checked: false,
+      },
+    ],
+  },
   {
     id: "brand",
     name: "Brands",
     options: [
-      { value: 'Essence', label: 'Essence', checked: false },
-      { value: 'Glamour Beauty', label: 'Glamour Beauty', checked: false },
-      { value: 'Velvet Touch', label: 'Velvet Touch', checked: false },
-      { value: 'Chic Cosmetics', label: 'Chic Cosmetics', checked: false },
-      { value: 'Nail Couture', label: 'Nail Couture', checked: false },
-      { value: 'Calvin Klein', label: 'Calvin Klein', checked: false },
-      { value: 'Chanel', label: 'Chanel', checked: false },
-      { value: 'Dior', label: 'Dior', checked: false },
+      { value: "Essence", label: "Essence", checked: false },
+      { value: "Glamour Beauty", label: "Glamour Beauty", checked: false },
+      { value: "Velvet Touch", label: "Velvet Touch", checked: false },
+      { value: "Chic Cosmetics", label: "Chic Cosmetics", checked: false },
+      { value: "Nail Couture", label: "Nail Couture", checked: false },
+      { value: "Calvin Klein", label: "Calvin Klein", checked: false },
+      { value: "Chanel", label: "Chanel", checked: false },
+      { value: "Dior", label: "Dior", checked: false },
       {
-        value: 'Dolce & Gabbana',
-        label: 'Dolce & Gabbana',
-        checked: false
+        value: "Dolce & Gabbana",
+        label: "Dolce & Gabbana",
+        checked: false,
       },
-      { value: 'Gucci', label: 'Gucci', checked: false },
+      { value: "Gucci", label: "Gucci", checked: false },
       {
-        value: 'Annibale Colombo',
-        label: 'Annibale Colombo',
-        checked: false
+        value: "Annibale Colombo",
+        label: "Annibale Colombo",
+        checked: false,
       },
-      { value: 'Furniture Co.', label: 'Furniture Co.', checked: false },
-      { value: 'Knoll', label: 'Knoll', checked: false },
-      { value: 'Bath Trends', label: 'Bath Trends', checked: false },
-      { value: 'undefined', label: 'undefined', checked: false },
-      { value: 'Apple', label: 'Apple', checked: false },
-      { value: 'Asus', label: 'Asus', checked: false },
-      { value: 'Huawei', label: 'Huawei', checked: false },
-      { value: 'Lenovo', label: 'Lenovo', checked: false },
-      { value: 'Dell', label: 'Dell', checked: false },
-      { value: 'Fashion Trends', label: 'Fashion Trends', checked: false },
-      { value: 'Gigabyte', label: 'Gigabyte', checked: false },
-      { value: 'Classic Wear', label: 'Classic Wear', checked: false },
-      { value: 'Casual Comfort', label: 'Casual Comfort', checked: false },
-      { value: 'Urban Chic', label: 'Urban Chic', checked: false },
-      { value: 'Nike', label: 'Nike', checked: false },
-      { value: 'Puma', label: 'Puma', checked: false },
-      { value: 'Off White', label: 'Off White', checked: false },
+      { value: "Furniture Co.", label: "Furniture Co.", checked: false },
+      { value: "Knoll", label: "Knoll", checked: false },
+      { value: "Bath Trends", label: "Bath Trends", checked: false },
+      { value: "undefined", label: "undefined", checked: false },
+      { value: "Apple", label: "Apple", checked: false },
+      { value: "Asus", label: "Asus", checked: false },
+      { value: "Huawei", label: "Huawei", checked: false },
+      { value: "Lenovo", label: "Lenovo", checked: false },
+      { value: "Dell", label: "Dell", checked: false },
+      { value: "Fashion Trends", label: "Fashion Trends", checked: false },
+      { value: "Gigabyte", label: "Gigabyte", checked: false },
+      { value: "Classic Wear", label: "Classic Wear", checked: false },
+      { value: "Casual Comfort", label: "Casual Comfort", checked: false },
+      { value: "Urban Chic", label: "Urban Chic", checked: false },
+      { value: "Nike", label: "Nike", checked: false },
+      { value: "Puma", label: "Puma", checked: false },
+      { value: "Off White", label: "Off White", checked: false },
       {
-        value: 'Fashion Timepieces',
-        label: 'Fashion Timepieces',
-        checked: false
+        value: "Fashion Timepieces",
+        label: "Fashion Timepieces",
+        checked: false,
       },
-      { value: 'Longines', label: 'Longines', checked: false },
-      { value: 'Rolex', label: 'Rolex', checked: false },
-      { value: 'Amazon', label: 'Amazon', checked: false }
+      { value: "Longines", label: "Longines", checked: false },
+      { value: "Rolex", label: "Rolex", checked: false },
+      { value: "Amazon", label: "Amazon", checked: false },
     ],
-  }, 
+  },
 ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
-}
-
-const[filter,setFilter] = useState({});
-
- const newFilter = {...filter,[section.id]:option.value}
- const handleFilter =(e,section, option)=>{
-  setFilter(newFilter)
-  dispatch(fetchProductsByFiltersAsync(newFilter))
- 
-  console.log(section.id, option.value)
 }
 
 export default function ProductList() {
@@ -144,9 +132,27 @@ export default function ProductList() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const products = useSelector(selectAllProducts);
 
+  const [filter, setFilter] = useState({});
+
+  const handleFilter = (e, section, option) => {
+    const newFilter = { ...filter, [section.id]: option.value };
+    setFilter(newFilter);
+    dispatch(fetchProductsByFiltersAsync(newFilter));
+
+    console.log(section.id, option.value);
+  };
+
+
+  const handleSort = (e, option) => {
+    const newFilter = { ...filter, _sort : option.sort , _order:option.order };
+    setFilter(newFilter);
+    dispatch(fetchProductsByFiltersAsync(newFilter));
+  };
+
+
   useEffect(() => {
     dispatch(fetchAllProductsAsync());
-  },[dispatch]);
+  }, [dispatch]);
 
   return (
     <div>
@@ -238,7 +244,7 @@ export default function ProductList() {
                                             defaultValue={option.value}
                                             type="checkbox"
                                             defaultChecked={option.checked}
-                                            onChange={e=>handleFilter(e,section,option)}
+                                          
                                             className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                           />
                                           <label
@@ -294,8 +300,8 @@ export default function ProductList() {
                           {sortOptions.map((option) => (
                             <MenuItem key={option.name}>
                               {({ focus }) => (
-                                <a
-                                  href={option.href}
+                                <p
+                                  onClick={e=>handleSort(e,option)}
                                   className={classNames(
                                     option.current
                                       ? "font-medium text-gray-900"
@@ -305,7 +311,7 @@ export default function ProductList() {
                                   )}
                                 >
                                   {option.name}
-                                </a>
+                                </p>
                               )}
                             </MenuItem>
                           ))}
@@ -384,6 +390,8 @@ export default function ProductList() {
                                       defaultValue={option.value}
                                       type="checkbox"
                                       defaultChecked={option.checked}
+                                      onChange = {e=>handleFilter(e, section, option)}
+                                      
                                       className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                     />
                                     <label
@@ -424,13 +432,13 @@ export default function ProductList() {
                                 <div className="mt-4 flex justify-between">
                                   <div>
                                     <h3 className="text-sm text-gray-700">
-                                      <a href={product.thumbnail}>
+                                      <div href={product.thumbnail}>
                                         <span
                                           aria-hidden="true"
                                           className="absolute inset-0"
                                         />
                                         {product.title}
-                                      </a>
+                                      </div>
                                     </h3>
                                     <p className="mt-1 text-sm text-gray-500">
                                       <StarIcon className="w-6 h-6 inline"></StarIcon>
