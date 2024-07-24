@@ -1,6 +1,6 @@
 export function fetchAllProducts() {
   return new Promise(async (resolve) =>{
-    const response = await fetch('http://localhost:8080/products') 
+    const response = await fetch('http://localhost:8080/products?') 
     const data = await response.json()
     resolve({data})
   }
@@ -32,7 +32,8 @@ let queryString = '';
     const response = await fetch('http://localhost:8080/products?'+queryString) 
     const data = await response.json()
     const totalItems = await response.headers.get('X-Total-Count')
-    resolve({data:{products:data,totalItems:+totalItems}})
+      
+    resolve({data: {products:data, totalItems:+totalItems}})
   }
   );
 }

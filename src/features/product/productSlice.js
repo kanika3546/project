@@ -4,7 +4,7 @@ import { fetchAllProducts , fetchProductsByFilters} from '../product/productAPI'
 const initialState = {
   products: [],
   status: 'idle',
-  totalItems :0
+  totalItems : 0,
 };
 
 export const fetchAllProductsAsync = createAsyncThunk(
@@ -19,7 +19,7 @@ export const fetchAllProductsAsync = createAsyncThunk(
 export const fetchProductsByFiltersAsync = createAsyncThunk(
   'product/fetchProductsByFilters',
   async ({filter,sort,pagination}) => {
-    const response = await fetchProductsByFilters(filter,sort, pagination);
+    const response = await fetchProductsByFilters(filter,sort,pagination);
     // The value we return becomes the `fulfilled` action payload
     return response.data;
   }
