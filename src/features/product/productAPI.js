@@ -1,3 +1,4 @@
+
 export function fetchAllProducts() {
   return new Promise(async (resolve) =>{
     const response = await fetch('http://localhost:8080/products') 
@@ -5,6 +6,14 @@ export function fetchAllProducts() {
     resolve({data})
   }
   );
+}
+
+export function fetchProductById(id) {
+  return new Promise(async (resolve) => {
+    const response = await fetch(`http://localhost:8080/products?id=${id}`);
+    const data = await response.json();
+    resolve({ data });
+  });
 }
 
 export function fetchProductsByFilters(filter,sort, pagination) {
@@ -31,12 +40,15 @@ let queryString = '';
   return new Promise(async (resolve) =>{
     const response = await fetch('http://localhost:8080/products?'+queryString) 
     const data = await response.json()
-    // const totalItems = await response.headers.get('X-Total-Count')
-    const totalItems = data.items;
+    // const totalItems = await response.headers.get('X-Total-Count') || 0;
+    const totalItems = await data.items ;
     resolve({data: {products:data, totalItems:+totalItems}})
   }
   );
 }
+
+
+
 
 
 export function fetchCategories() {
@@ -56,3 +68,8 @@ export function fetchBrands() {
   }
   );
 }
+
+
+
+
+
