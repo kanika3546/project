@@ -41,7 +41,7 @@ let queryString = '';
     const response = await fetch('http://localhost:8080/products?'+queryString) 
     const data = await response.json()
     // const totalItems = await response.headers.get('X-Total-Count') || 0;
-    const totalItems = await data.items ;
+    const totalItems = await data.items;
     resolve({data: {products:data, totalItems:+totalItems}})
   }
   );
