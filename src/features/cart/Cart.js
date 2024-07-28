@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {  selectItems, updateCartAsync , deleteItemFromCartAsync } from './cartSlice';
-import { Link } from "react-router-dom";
+import { Link,Navigate } from "react-router-dom";
 
 import {
   Dialog,
@@ -35,6 +35,7 @@ const handleRemove =(e,id)=> {
 
   return (
     <>
+      {!items.length && <Navigate to='/' replace={true}></Navigate>}
       <div className="mx-auto mt-8 max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="border-t bg-white border-gray-200 px-4 py-6 sm:px-6">
           <h1 className="text-4xl my-3 font-bold tracking-tight text-gray-900">
