@@ -6,6 +6,7 @@ import { fetchAllProductByIdAsync, selectProductById } from '../productSlice';
 import { addToCartAsync } from '../../cart/cartSlice';
 import { selectLoggedInUser } from '../../auth/authSlice';
 import { useParams } from 'react-router-dom';
+import { selectUserInfo } from '../../user/userSlice'; 
 
 //TODO : IN SERVER DATA WE WILL ADD COLORS, SIZES , HIGHLIGHTS
 
@@ -42,7 +43,8 @@ function classNames(...classes) {
 export default function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState(colors[0])
   const [selectedSize, setSelectedSize] = useState(sizes[2])
-  const user = useSelector(selectLoggedInUser)
+   const user = useSelector(selectLoggedInUser)
+ // const user = useSelector(selectUserInfo);
  const product = useSelector(selectProductById);
  const dispatch = useDispatch();
  const params = useParams();

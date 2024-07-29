@@ -10,7 +10,7 @@ function OrderSuccessPage() {
    const params = useParams() 
    const dispatch = useDispatch();
    const user = useSelector(selectLoggedInUser);
-
+  //  const user = useSelector(selectUserInfo)
    useEffect(()=>{
     // reset cart
     dispatch(resetCartAsync(user.id))

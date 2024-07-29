@@ -5,9 +5,11 @@ import {  selectItems, updateCartAsync , deleteItemFromCartAsync} from "../featu
 import { createOrderAsync, selectCurrentOrder} from "../features/order/orderSlice";
 import { useForm } from 'react-hook-form';
 import {
+
   selectLoggedInUser,
   updateUserAsync,
 } from '../features/auth/authSlice';
+import {  selectUserInfo } from '../features/user/userSlice';
 //import { selectCurrentOrder } from '../features/order/orderSlice';
 import {
   Dialog,
@@ -46,7 +48,8 @@ const dispatch = useDispatch();
     reset,
     formState: { errors },
   } = useForm();
-  const user = useSelector(selectLoggedInUser);
+  //const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo );
   
 
 

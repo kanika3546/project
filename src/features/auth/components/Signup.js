@@ -9,12 +9,12 @@ import {
 } from '../authSlice';
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
-
+import { selectUserInfo } from '../../user/userSlice';
 
 export default function Signup() {
  
   const user = useSelector(selectLoggedInUser);
-
+  //const user = useSelector(selectUserInfo);
 
   const dispatch = useDispatch();
   const {
