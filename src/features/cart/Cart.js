@@ -17,7 +17,7 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 export default function Cart() {
 
 const dispatch = useDispatch();
-  const [open, setOpen] = useState(true);
+ 
 
   const items = useSelector(selectItems);
   //const totalAmount = items.reduce((amount, item)=>item.price*item.quantity + amount,0)
@@ -129,7 +129,7 @@ const handleRemove =(e,id)=> {
               <button
                 type="button"
                 className="font-medium text-indigo-600 hover:text-indigo-500"
-                onClick={() => setOpen(false)}
+              
               >
                 Continue Shopping
                 <span aria-hidden="true"> &rarr;</span>

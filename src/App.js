@@ -11,6 +11,10 @@ import LoginPage from './pages/LoginPage';
 import CartPage from './pages/CartPage';
 import Checkout from './pages/Checkout'
 import ProductDetailPage from './pages/ProductDetailPage';
+import PageNotFound from './pages/404';
+import OrderSuccessPage from './pages/OrderSuccessPage';
+import UserOrders from './features/user/components/UserOrders';
+import UserOrdersPage from './pages/UserOrdersPage';
 
 import { createRoot } from "react-dom/client";
 import {
@@ -60,6 +64,25 @@ const router = createBrowserRouter([
       <Protected>
         <ProductDetailPage></ProductDetailPage>
       </Protected>
+    ),
+  },
+  {
+    path: '/order-success/:id',
+    element: (
+      <OrderSuccessPage></OrderSuccessPage>
+    ),
+  },
+  {
+    path: '/orders',
+    element: (
+      <UserOrdersPage></UserOrdersPage>
+      // we will add Page later right now using component directly.
+    ),
+  },
+  {
+    path: '*',
+    element: (
+      <PageNotFound></PageNotFound>
     ),
   },
 ]);

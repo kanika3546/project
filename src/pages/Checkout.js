@@ -2,12 +2,13 @@ import { Link , Navigate} from "react-router-dom";
 import React, { useState, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {  selectItems, updateCartAsync , deleteItemFromCartAsync} from "../features/cart/cartSlice";
-import { createOrderAsync } from "../features/order/orderSlice";
+import { createOrderAsync, selectCurrentOrder} from "../features/order/orderSlice";
 import { useForm } from 'react-hook-form';
 import {
   selectLoggedInUser,
   updateUserAsync,
 } from '../features/auth/authSlice';
+//import { selectCurrentOrder } from '../features/order/orderSlice';
 import {
   Dialog,
   DialogPanel,
@@ -47,14 +48,16 @@ const dispatch = useDispatch();
   } = useForm();
   const user = useSelector(selectLoggedInUser);
   
-  const [open, setOpen] = useState(true);
+
 
   const items = useSelector(selectItems);
+  const currentOrder = useSelector(selectCurrentOrder);
+  //const currentOrder = useSelector(selectCurrentOrder);
   const totalAmount = items.reduce((amount, item)=>item[0].price*item.quantity + amount,0)
   const totalItems = items.reduce((total, item)=>item.quantity + total,0);
 
   const [selectedAddress, setSelectedAddress] = useState(null);
-  const [paymentMethod, setPaymentMethod] = useState('cash');
+  const [paymentMethod, setPaymentMethod] = useState('null');
 
 const handleQuantity =(e,item)=> {
 dispatch(updateCartAsync({...item, quantity: +e.target.value}))
@@ -75,15 +78,33 @@ const handleRemove =(e,id)=> {
   };
   
   const handleOrder = (e) => {
-    const order = {items, totalAmount, totalItems, user, paymentMethod, selectedAddress}
-    dispatch(createOrderAsync(order))
+    // const order = {items, totalAmount, totalItems, user, paymentMethod, selectedAddress}
+    // dispatch(createOrderAsync(order))
     //TODO : Redirect to order-success page
     //TODO : clear cart after order
     //TODO : on server change the stock number of items
+
+    if (selectedAddress && paymentMethod) {
+      const order = {
+        items,
+        totalAmount,
+        totalItems,
+        user,
+        paymentMethod,
+        selectedAddress,
+        status: "pending" //other status can be delivered, received.
+      };
+      dispatch(createOrderAsync(order));
+      // need to redirect from here to a new page of order success.
+    } else {
+      // TODO : we can use proper messaging popup here
+      alert('Enter Address and Payment method')
+    }
   };
 
   return (
     <>      {!items.length && <Navigate to='/' replace={true}></Navigate>}
+    {currentOrder && <Navigate to={`/order-success/${currentOrder.id}`} replace={true}></Navigate>}
     <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
         <div className="lg:col-span-3">
@@ -120,6 +141,9 @@ const handleRemove =(e,id)=> {
                      
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
+                       {errors.name && (
+                          <p className="text-red-500">{errors.name.message}</p>
+                        )}
                     </div>
                   </div>
 
@@ -142,7 +166,10 @@ const handleRemove =(e,id)=> {
                         type="email"
                    
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      />
+                      /> 
+                      {errors.email && (
+                        <p className="text-red-500">{errors.email.message}</p>
+                      )}
                     </div>
                   </div>
 
@@ -163,6 +190,9 @@ const handleRemove =(e,id)=> {
                           type="tel"
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
+                         {errors.phone && (
+                          <p className="text-red-500">{errors.phone.message}</p>
+                        )}
                        </div>
                   </div>
 
@@ -182,7 +212,11 @@ const handleRemove =(e,id)=> {
                         id="street"
                        
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      />
+                      /> {errors.street && (
+                        <p className="text-red-500">
+                          {errors.street.message}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -202,7 +236,9 @@ const handleRemove =(e,id)=> {
                         id="city"
                       
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      />
+                      />  {errors.city && (
+                        <p className="text-red-500">{errors.city.message}</p>
+                      )}
                     </div>
                   </div>
 
@@ -222,7 +258,9 @@ const handleRemove =(e,id)=> {
                         id="state"
                        
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      />
+                      />{errors.state && (
+                        <p className="text-red-500">{errors.state.message}</p>
+                      )}
                     </div>
                   </div>
 
@@ -242,7 +280,11 @@ const handleRemove =(e,id)=> {
                         id="pinCode"
          
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      />
+                      />    {errors.pinCode && (
+                        <p className="text-red-500">
+                          {errors.pinCode.message}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -459,7 +501,7 @@ const handleRemove =(e,id)=> {
               <button
                 type="button"
                 className="font-medium text-indigo-600 hover:text-indigo-500"
-                onClick={() => setOpen(false)}
+              
               >
                 Continue Shopping
                 <span aria-hidden="true"> &rarr;</span>
