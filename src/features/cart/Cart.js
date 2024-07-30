@@ -2,6 +2,7 @@ import React, { useState, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {  selectItems, updateCartAsync , deleteItemFromCartAsync } from './cartSlice';
 import { Link,Navigate } from "react-router-dom";
+// import { discountedPrice } from '../../app/constants';
 
 import {
   Dialog,
@@ -21,6 +22,7 @@ const dispatch = useDispatch();
 
   const items = useSelector(selectItems);
   //const totalAmount = items.reduce((amount, item)=>item.price*item.quantity + amount,0)
+  // const totalAmount = items.reduce( (amount, item) => discountedPrice(item) * item.quantity + amount,0)
   const totalAmount = items.reduce((amount, item)=>item[0].price*item.quantity + amount,0)
   const totalItems = items.reduce((total, item)=>item.quantity + total,0)
 
@@ -59,7 +61,8 @@ const handleRemove =(e,id)=> {
                         <h3>
                         <a href={item[0].href}>{item[0].title}</a>
                         </h3>
-                        <p className="ml-4">${item[0].price}</p>
+                       <p className="ml-4">${item[0].price}</p>
+                        {/* <p className="ml-4">${discountedPrice(item)}</p> */}
                       </div>
                       <p className="mt-1 text-sm text-gray-500">
                         {item[0].brand}

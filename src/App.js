@@ -23,7 +23,7 @@ import OrderSuccessPage from './pages/OrderSuccessPage';
 import UserProfile from './features/user/components/UserProfile';
 import Logout from './features/auth/components/Logout';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
-
+import AdminOrdersPage from './pages/AdminOrdersPage';
 import UserOrdersPage from './pages/UserOrdersPage';
 import UserProfilePage from './pages/UserProfilePage';
 import UserOrders from './features/user/components/UserOrders';
@@ -102,6 +102,14 @@ const router = createBrowserRouter([
     element: (
       <ProtectedAdmin>
         <AdminProductFormPage></AdminProductFormPage>
+      </ProtectedAdmin>
+    ),
+  },
+  {
+    path: '/admin/orders',
+    element: (
+      <ProtectedAdmin>
+        <AdminOrdersPage></AdminOrdersPage>
       </ProtectedAdmin>
     ),
   },

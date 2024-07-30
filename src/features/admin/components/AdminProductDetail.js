@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { StarIcon } from '@heroicons/react/20/solid';
 import { Radio, RadioGroup } from '@headlessui/react';
 import { useDispatch, useSelector } from 'react-redux';
+import { discountedPrice } from '../../../app/constants';
 
 import { fetchProductByIdAsync, selectProductById } from '../../product/productSlice';
 import { useParams } from 'react-router-dom';
@@ -134,6 +135,9 @@ export default function AdminProductDetail() {
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
               <p className="text-3xl tracking-tight text-gray-900">{product[0].price}</p>
+              <p className="text-xl line-through  tracking-tight text-gray-900">
+                ${discountedPrice(product)}
+              </p>
   
               {/* Reviews */}
               <div className="mt-6">

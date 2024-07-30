@@ -10,8 +10,8 @@ import {
   selectTotalItems,
 } from '../../product/productSlice';
 
-import { ITEMS_PER_PAGE } from '../../../app/constants';
-
+//import { ITEMS_PER_PAGE , discountedPrice} from '../../../app/constants';
+import { ITEMS_PER_PAGE, discountedPrice } from "../../../app/constants";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -538,13 +538,11 @@ function ProductGrid({ products }) {
                   <div>
                     <p className="text-sm block font-medium text-gray-900">
                       $
-                      {Math.round(
-                        product.price * (1 - product.discountPercentage / 100)
-                      )}
+                      {discountedPrice(product)}
                     </p>
-                    <p className="text-sm block line-through font-medium text-gray-400">
-                      ${product.price}
-                    </p>
+                    {/* <p className="text-sm block line-through font-medium text-gray-400">
+                      ${product[0].price}
+                    </p> */}
                   </div>
                 </div>
 
