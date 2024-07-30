@@ -3,18 +3,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useForm } from "react-hook-form"
 
 import { selectLoggedInUser, createUserAsync } from '../authSlice';
-import {
-  increment,
-  incrementAsync,
-} from '../authSlice';
+
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
-import { selectUserInfo } from '../../user/userSlice';
+
 
 export default function Signup() {
  
   const user = useSelector(selectLoggedInUser);
-  //const user = useSelector(selectUserInfo);
+  
 
   const dispatch = useDispatch();
   const {

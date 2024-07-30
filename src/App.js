@@ -4,7 +4,7 @@ import './App.css';
 import Protected from './features/auth/components/Protected';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserInfo } from './features/user/userSlice';
+
 import { selectLoggedInUser } from './features/auth/authSlice';
 import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
 import SignupPage from './pages/SignupPage';
@@ -120,7 +120,7 @@ function App() {
  
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
-//const user= useSelector(selectUserInfo );
+
   useEffect(()=>{
     if(user){
       dispatch(fetchItemsByUserIdAsync(user.id))
