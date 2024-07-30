@@ -62,6 +62,25 @@ const handleRemove =(e, index)=>{
     <div>
       <div className="mx-auto mt-8 max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="border-t bg-white border-gray-200 px-4 py-6 sm:px-6">
+       
+
+          <h1 className="text-4xl my-3 font-bold tracking-tight text-gray-900">
+        Name: {user.name ? user.name: 'New User'}
+          </h1>
+          <h3 className="text-xl my-5 font-bold tracking-tight text-red-900">
+              Email Address: {user.email}
+            </h3>
+           {user.role ==="admin" && (<h3 className="text-xl my-5 font-bold tracking-tight text-red-900">
+              role: {user.role}
+            </h3>)}
+         <div>
+           </div>
+
+          <p className="mt-0.5 text-sm text-gray-500">
+          
+          </p>
+
+          <div>
         <button
             onClick={e=>{setShowAddAddressForm(true);setSelectedEditIndex(-1)}}
             type="submit"
@@ -270,20 +289,8 @@ const handleRemove =(e, index)=>{
             </div>
               </div>
           </form> :null  }
-
-
-          <h1 className="text-4xl my-3 font-bold tracking-tight text-gray-900">
-        Name: {user.name ? user.name: 'New User'}
-          </h1>
-          <h3 className="text-xl my-5 font-bold tracking-tight text-red-900">
-              Email Address: {user.email}
-            </h3>
-         <div>
-           </div>
-
-          <p className="mt-0.5 text-sm text-gray-500">
+          </div>
           
-          </p>
           Your Address: {user.addresses.map((address,index)=>
                     <div>
                       {selectedEditIndex ===index ?

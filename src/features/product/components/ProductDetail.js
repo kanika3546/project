@@ -2,11 +2,10 @@ import { useState , useEffect } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { Radio, RadioGroup } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllProductByIdAsync, selectProductById } from '../productSlice';
+import { fetchProductByIdAsync, selectProductById } from '../productSlice';
 import { addToCartAsync } from '../../cart/cartSlice';
 import { selectLoggedInUser } from '../../auth/authSlice';
 import { useParams } from 'react-router-dom';
-import { selectUserInfo } from '../../user/userSlice'; 
 
 //TODO : IN SERVER DATA WE WILL ADD COLORS, SIZES , HIGHLIGHTS
 
@@ -62,7 +61,7 @@ dispatch(addToCartAsync(newItem))
 }
 
  useEffect(() => {
-   dispatch(fetchAllProductByIdAsync(params.id));
+   dispatch(fetchProductByIdAsync(params.id));
  }, [dispatch, params.id]);
 
   return (
@@ -307,5 +306,5 @@ dispatch(addToCartAsync(newItem))
         </div>
       </div>}
     </div>
-  )
+  );
 }

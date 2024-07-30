@@ -6007,6 +6007,69 @@
         "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/3.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/thumbnail.png"
+    },
+    {
+      "id": "b5d7",
+      "title": "lip gloss",
+      "description": "cranberry red",
+      "brand": "Essence",
+      "category": "beauty",
+      "price": "20",
+      "discountPercentage": "0",
+      "stock": "3",
+      "thumbnail": "okok",
+      "images": [
+        "okok1"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "7935",
+      "title": "highlighter",
+      "description": "shade name= fairy dust",
+      "brand": "Gucci",
+      "category": "beauty",
+      "price": 55,
+      "discountPercentage": 0,
+      "stock": 3,
+      "thumbnail": "azaz",
+      "images": [
+        "azaz1"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "3de9",
+      "title": "Testing Product",
+      "description": "hello",
+      "brand": "Apple",
+      "category": "laptops",
+      "price": 22,
+      "discountPercentage": 1,
+      "stock": 3,
+      "thumbnail": "k",
+      "images": [
+        
+          "a"
+        
+      ],
+      "rating": 0
+    },
+    {
+      "id": "db2d",
+      "title": "run bro",
+      "description": "testing",
+      "brand": "Essence",
+      "category": "beauty",
+      "price": 22,
+      "discountPercentage": 5,
+      "stock": 2,
+      "thumbnail": "m",
+      "images": [
+        "e"
+      ],
+      "rating": 0,
+      "deleted": true
     }
   ],
   "total": 100,
@@ -6278,12 +6341,14 @@
     {
       "id": "0c4b",
       "email": "hello@gmail.com",
+      "role": "user",
       "addresses": [],
       "password": "Qwertyuiop123"
     },
     {
       "id": "09f5",
       "email": "demo@gmail.com",
+      "role": "user",
       "addresses": [
         {
           "name": "KANIKA M",
@@ -6323,73 +6388,80 @@
         }
       ],
       "password": "Qwertyuiop123"
+    },
+    {
+      "id": "8f24",
+      "email": "admin@gmail.ccom",
+      "password": "Admin123",
+      "addresses": [],
+      "role": "admin"
     }
   ],
   "cart": [
     {
       "0": {
-        "id": "4",
-        "title": "Red Lipstick",
-        "description": "The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.",
+        "id": "1",
+        "title": "Essence Mascara Lash Princess",
+        "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
         "category": "beauty",
-        "price": 12.99,
-        "discountPercentage": 19.03,
-        "rating": 2.51,
-        "stock": 68,
+        "price": 9.99,
+        "discountPercentage": 7.17,
+        "rating": 4.94,
+        "stock": 5,
         "tags": [
           "beauty",
-          "lipstick"
+          "mascara"
         ],
-        "brand": "Chic Cosmetics",
-        "sku": "O5IF1NTA",
-        "weight": 5,
+        "brand": "Essence",
+        "sku": "RCH45Q1A",
+        "weight": 2,
         "dimensions": {
-          "width": 14.37,
-          "height": 13.94,
-          "depth": 14.6
+          "width": 23.17,
+          "height": 14.43,
+          "depth": 28.01
         },
-        "warrantyInformation": "Lifetime warranty",
-        "shippingInformation": "Ships in 2 weeks",
-        "availabilityStatus": "In Stock",
+        "warrantyInformation": "1 month warranty",
+        "shippingInformation": "Ships in 1 month",
+        "availabilityStatus": "Low Stock",
         "reviews": [
           {
-            "rating": 5,
-            "comment": "Great product!",
-            "date": "2024-05-23T08:56:21.619Z",
-            "reviewerName": "Leo Rivera",
-            "reviewerEmail": "leo.rivera@x.dummyjson.com"
+            "rating": 2,
+            "comment": "Very unhappy with my purchase!",
+            "date": "2024-05-23T08:56:21.618Z",
+            "reviewerName": "John Doe",
+            "reviewerEmail": "john.doe@x.dummyjson.com"
           },
           {
-            "rating": 4,
-            "comment": "Very pleased!",
-            "date": "2024-05-23T08:56:21.619Z",
-            "reviewerName": "Oscar Powers",
-            "reviewerEmail": "oscar.powers@x.dummyjson.com"
+            "rating": 2,
+            "comment": "Not as described!",
+            "date": "2024-05-23T08:56:21.618Z",
+            "reviewerName": "Nolan Gonzalez",
+            "reviewerEmail": "nolan.gonzalez@x.dummyjson.com"
           },
           {
             "rating": 5,
-            "comment": "Very pleased!",
-            "date": "2024-05-23T08:56:21.619Z",
-            "reviewerName": "Carter Rivera",
-            "reviewerEmail": "carter.rivera@x.dummyjson.com"
+            "comment": "Very satisfied!",
+            "date": "2024-05-23T08:56:21.618Z",
+            "reviewerName": "Scarlett Wright",
+            "reviewerEmail": "scarlett.wright@x.dummyjson.com"
           }
         ],
-        "returnPolicy": "90 days return policy",
-        "minimumOrderQuantity": 6,
+        "returnPolicy": "30 days return policy",
+        "minimumOrderQuantity": 24,
         "meta": {
-          "createdAt": "2024-05-23T08:56:21.619Z",
-          "updatedAt": "2024-05-23T08:56:21.619Z",
-          "barcode": "9444582199406",
+          "createdAt": "2024-05-23T08:56:21.618Z",
+          "updatedAt": "2024-05-23T08:56:21.618Z",
+          "barcode": "9164035109868",
           "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
         },
         "images": [
-          "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/1.png"
+          "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
         ],
-        "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/thumbnail.png"
+        "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png"
       },
-      "id": "6757",
+      "id": "c428",
       "quantity": 1,
-      "user": "09f5"
+      "user": "8f24"
     }
   ],
   "orders": [
@@ -7074,6 +7146,198 @@
         "city": "BHIWANDI",
         "state": "Maharashtra",
         "pinCode": "421302"
+      },
+      "status": "pending"
+    },
+    {
+      "id": "daf1",
+      "items": [
+        {
+          "0": {
+            "id": "4",
+            "title": "Red Lipstick",
+            "description": "The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.",
+            "category": "beauty",
+            "price": 12.99,
+            "discountPercentage": 19.03,
+            "rating": 2.51,
+            "stock": 68,
+            "tags": [
+              "beauty",
+              "lipstick"
+            ],
+            "brand": "Chic Cosmetics",
+            "sku": "O5IF1NTA",
+            "weight": 5,
+            "dimensions": {
+              "width": 14.37,
+              "height": 13.94,
+              "depth": 14.6
+            },
+            "warrantyInformation": "Lifetime warranty",
+            "shippingInformation": "Ships in 2 weeks",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 5,
+                "comment": "Great product!",
+                "date": "2024-05-23T08:56:21.619Z",
+                "reviewerName": "Leo Rivera",
+                "reviewerEmail": "leo.rivera@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Very pleased!",
+                "date": "2024-05-23T08:56:21.619Z",
+                "reviewerName": "Oscar Powers",
+                "reviewerEmail": "oscar.powers@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Very pleased!",
+                "date": "2024-05-23T08:56:21.619Z",
+                "reviewerName": "Carter Rivera",
+                "reviewerEmail": "carter.rivera@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "90 days return policy",
+            "minimumOrderQuantity": 6,
+            "meta": {
+              "createdAt": "2024-05-23T08:56:21.619Z",
+              "updatedAt": "2024-05-23T08:56:21.619Z",
+              "barcode": "9444582199406",
+              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/1.png"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/thumbnail.png"
+          },
+          "id": "6757",
+          "quantity": 1,
+          "user": "09f5"
+        },
+        {
+          "0": {
+            "id": "2",
+            "title": "Eyeshadow Palette with Mirror",
+            "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
+            "category": "beauty",
+            "price": 19.99,
+            "discountPercentage": 5.5,
+            "rating": 3.28,
+            "stock": 44,
+            "tags": [
+              "beauty",
+              "eyeshadow"
+            ],
+            "brand": "Glamour Beauty",
+            "sku": "MVCFH27F",
+            "weight": 3,
+            "dimensions": {
+              "width": 12.42,
+              "height": 8.63,
+              "depth": 29.13
+            },
+            "warrantyInformation": "1 year warranty",
+            "shippingInformation": "Ships in 2 weeks",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 4,
+                "comment": "Very satisfied!",
+                "date": "2024-05-23T08:56:21.618Z",
+                "reviewerName": "Liam Garcia",
+                "reviewerEmail": "liam.garcia@x.dummyjson.com"
+              },
+              {
+                "rating": 1,
+                "comment": "Very disappointed!",
+                "date": "2024-05-23T08:56:21.618Z",
+                "reviewerName": "Nora Russell",
+                "reviewerEmail": "nora.russell@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Highly impressed!",
+                "date": "2024-05-23T08:56:21.618Z",
+                "reviewerName": "Elena Baker",
+                "reviewerEmail": "elena.baker@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "30 days return policy",
+            "minimumOrderQuantity": 32,
+            "meta": {
+              "createdAt": "2024-05-23T08:56:21.618Z",
+              "updatedAt": "2024-05-23T08:56:21.618Z",
+              "barcode": "2817839095220",
+              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png"
+          },
+          "id": "bd42",
+          "quantity": 1,
+          "user": "09f5"
+        }
+      ],
+      "totalAmount": 32.98,
+      "totalItems": 2,
+      "user": {
+        "id": "09f5",
+        "email": "demo@gmail.com",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "KANIKA M",
+            "email": "kanika3546@gmail.com",
+            "city": "Bhiwandi",
+            "state": "Maharashtra",
+            "pinCode": "421302",
+            "phone": "12345678",
+            "street": "Bhiwandi"
+          },
+          {
+            "name": "KANIKA MEHTA",
+            "email": "demo@gmail.com",
+            "phone": "08806674892",
+            "street": "damnnn",
+            "city": "Bhiwandi",
+            "state": "Maharashtra",
+            "pinCode": "421305"
+          },
+          {
+            "name": "MEHTA KARAN KAMLESH",
+            "email": "karanmehta4142@gmail.com",
+            "city": "BHIWANDI",
+            "state": "Maharashtra",
+            "pinCode": "421302",
+            "phone": "787878787878",
+            "street": "KAMATGHAR"
+          },
+          {
+            "name": "Blue wolf",
+            "email": "abcd@gmaill.com",
+            "city": "BHIWANDI",
+            "state": "M",
+            "pinCode": "421302",
+            "phone": "787878787878",
+            "street": "H.N0.1412/0, 1 FLOOR, RAJIV GHANDI NAGAR"
+          }
+        ],
+        "password": "Qwertyuiop123"
+      },
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Blue wolf",
+        "email": "abcd@gmaill.com",
+        "city": "BHIWANDI",
+        "state": "M",
+        "pinCode": "421302",
+        "phone": "787878787878",
+        "street": "H.N0.1412/0, 1 FLOOR, RAJIV GHANDI NAGAR"
       },
       "status": "pending"
     }
