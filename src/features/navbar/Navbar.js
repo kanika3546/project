@@ -22,8 +22,8 @@ import { selectItems } from '../cart/cartSlice';
 
 
 const navigation = [
-  { name: 'Dashboard', link: '#', user: true },
-  { name: 'Team', link: '#', user: true },
+  { name: 'Products', link: '/', user: true },
+
   { name: 'Admin', link: '/admin', admin: true },
   { name: 'Orders', link: '/admin/orders', admin: true },
 ];
