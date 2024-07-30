@@ -15,6 +15,8 @@ import ProductDetailPage from './pages/ProductDetailPage';
 import PageNotFound from './pages/404';
 import OrderSuccessPage from './pages/OrderSuccessPage';
 import UserProfile from './features/user/components/UserProfile';
+import Logout from './features/auth/components/Logout';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
 
 import UserOrdersPage from './pages/UserOrdersPage';
 import UserProfilePage from './pages/UserProfilePage';
@@ -86,6 +88,7 @@ const router = createBrowserRouter([
       // we will add Page later right now using component directly.
     ),
   },
+  
   {
     path: '/profile',
     element: (
@@ -94,6 +97,14 @@ const router = createBrowserRouter([
      <UserProfilePage></UserProfilePage>
       // we will add Page later right now using component directly.
     ),
+  },
+  {
+    path: '/logout',
+    element: <Logout></Logout>,
+  },
+  {
+    path: '/forgot-password',
+    element: <ForgotPasswordPage></ForgotPasswordPage>,
   },
   {
     path: '*',
