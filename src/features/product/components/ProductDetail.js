@@ -3,10 +3,11 @@ import { StarIcon } from '@heroicons/react/20/solid'
 import { Radio, RadioGroup } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductByIdAsync, selectProductById } from '../productSlice';
-import { addToCartAsync } from '../../cart/cartSlice';
+import { addToCartAsync , selectItems} from '../../cart/cartSlice';
 import { selectLoggedInUser } from '../../auth/authSlice';
 import { useParams } from 'react-router-dom';
 import { discountedPrice } from '../../../app/constants';
+import { useAlert } from 'react-alert';
 
 //TODO : IN SERVER DATA WE WILL ADD COLORS, SIZES , HIGHLIGHTS
 
@@ -43,22 +44,35 @@ function classNames(...classes) {
 export default function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState(colors[0])
   const [selectedSize, setSelectedSize] = useState(sizes[2])
-   const user = useSelector(selectLoggedInUser)
-
+   const user = useSelector(selectLoggedInUser);
+   const items = useSelector(selectItems);
  const product = useSelector(selectProductById);
  const dispatch = useDispatch();
+ const alert = useAlert();
  const params = useParams();
 
-//  const handleCart = (e)=>{
-//   e.preventDefault();
-//   dispatch(addToCartAsync({...product,quantity:1, user:user.id })) 
-// }
+
 
 const handleCart = (e)=>{
   e.preventDefault();
-const newItem  = {...product,quantity:1,user:user.id }
-delete newItem['id'];
-dispatch(addToCartAsync(newItem)) 
+
+if (items.findIndex((item) => item.productId === product[0].id) < 0) {
+  console.log({ items, product });
+  const newItem = {
+    ...product,
+    productId: product[0].id,
+    quantity: 1,
+    user: user.id,
+  };
+  delete newItem['id'];
+  dispatch(addToCartAsync(newItem));
+  // TODO: it will be based on server response of backend
+  alert.error('Item added to Cart');
+} else {
+  console.log('already added');
+ alert.error('Item Already added');
+}
+
 }
 
  useEffect(() => {
@@ -114,6 +128,7 @@ dispatch(addToCartAsync(newItem))
                 className="h-full w-full object-cover object-center"
               />
             </div>
+            
             <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
               <img
                src={product.images[2]}

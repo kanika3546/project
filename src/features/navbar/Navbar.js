@@ -24,7 +24,7 @@ import { selectItems } from '../cart/cartSlice';
 const navigation = [
   { name: 'Products', link: '/', user: true },
 
-  { name: 'Admin', link: '/admin', admin: true },
+  { name: 'Products-admin', link: '/admin', admin: true },
   { name: 'Orders', link: '/admin/orders', admin: true },
 ];
 
@@ -56,6 +56,7 @@ function Navbar({ children }) {
                       <img
                         className="h-8 w-8"
                         src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                        //put your own logo
                         alt="Your Company"
                       />
                       </Link>
@@ -89,7 +90,7 @@ function Navbar({ children }) {
                         type="button"
                         className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                       >
-                        <span className="absolute -inset-1.5" />
+                       {/* <span className="absolute -inset-1.5" /> */}
                         <span className="sr-only">View notifications</span>
                         <ShoppingCartIcon
                           className="h-6 w-6"
@@ -203,7 +204,8 @@ function Navbar({ children }) {
                     <Link to="/cart">
                     <button
                       type="button"
-                      className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                      // className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                           className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                     >
                       <span className="absolute -inset-1.5" />
                       <ShoppingCartIcon

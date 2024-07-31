@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectBrands,selectCategories, createProductAsync, fetchProductByIdAsync, clearSelectedProduct , selectProductById, updateProductAsync} from '../../product/productSlice';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+// import Modal from '../../common/Modal';
 
 function ProductForm() {
   const {
@@ -13,11 +14,14 @@ function ProductForm() {
     reset,
     formState: { errors },
   } = useForm();
+
+
   const brands = useSelector(selectBrands);
   const categories = useSelector(selectCategories);
   const dispatch = useDispatch();
   const params = useParams();
  const selectedProduct = useSelector(selectProductById);
+// const [openModal, setOpenModal] = useState(null);
 
   useEffect(() => {
     if (params.id) {
@@ -52,6 +56,7 @@ function ProductForm() {
   }
 
   return (
+    
     <form
       noValidate
       onSubmit={handleSubmit((data) => {
@@ -92,6 +97,10 @@ function ProductForm() {
           </h2>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+
+          {/* {selectedProduct.deleted && <h2 className="text-red-500 sm:col-span-6">
+            This product is deleted</h2>} */}
+
             <div className="sm:col-span-6">
               <label
                 htmlFor="title"
@@ -420,13 +429,23 @@ function ProductForm() {
         >
           Cancel
         </button>
-
-       {selectedProduct && <button
+        {selectedProduct && <button
           onClick={handleDelete}
           className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
           Delete
         </button>}
+
+        {/* {selectedProduct && !selectedProduct[0].deleted && (
+          <button
+            onClick={(e)=>{e.preventDefault();
+              setOpenModal(true)}}
+            className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Delete
+          </button>
+        )} */}
+
 
         <button
           type="submit"
@@ -436,6 +455,18 @@ function ProductForm() {
         </button>
       </div>
     </form>
+  //    /* <Modal
+  //    //title={`Delete ${selectedProduct.title}`}
+  //    title={'Delete '}
+  //    message="Are you sure you want to delete this Product ?"
+  //    dangerOpt{ion="Delete"
+  //    cancelOption="Cancel"
+  //    dangerAction={handleDelete}
+  //    cancelAction={() => setOpenModal(null)}
+  //    showModal={openModal}
+  //  ></Modal> */
+  // }
+ 
   );
 }
 

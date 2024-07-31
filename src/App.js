@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Home from './pages/Home';
 import './App.css';
+
 import Protected from './features/auth/components/Protected';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -37,7 +38,15 @@ import {
 } from "react-router-dom";
 import { fetchLoggedInUser } from './features/user/userAPI';
 import { fetchLoggedInUserAsync } from './features/user/userSlice';
+import { positions, Provider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
 
+
+
+const options = {
+  timeout: 5000,
+  position: positions.BOTTOM_LEFT,
+};
 
 
 const router = createBrowserRouter([
@@ -178,8 +187,10 @@ function App() {
 
     
     <div className="App">
-    <RouterProvider router={router} />
-    {/* <Home></Home> */}
+      <Provider template={AlertTemplate} {...options}>
+          <RouterProvider router={router} />
+        </Provider>
+
 
     </div>
   );
