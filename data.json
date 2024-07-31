@@ -6011,97 +6011,6 @@
       "thumbnail": "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/thumbnail.png"
     },
     {
-      "id": "b5d7",
-      "title": "lip gloss",
-      "description": "cranberry red",
-      "brand": "Essence",
-      "category": "beauty",
-      "price": "20",
-      "discountPercentage": "0",
-      "stock": "3",
-      "thumbnail": "okok",
-      "images": [
-        "okok1"
-      ],
-      "rating": 0,
-      "deleted": true
-    },
-    {
-      "id": "7935",
-      "title": "highlighter",
-      "description": "shade name= fairy dust",
-      "brand": "Gucci",
-      "category": "beauty",
-      "price": 55,
-      "discountPercentage": 0,
-      "stock": 3,
-      "thumbnail": "azaz",
-      "images": [
-        "azaz1"
-      ],
-      "rating": 0,
-      "deleted": true
-    },
-    {
-      "id": "3de9",
-      "title": "Testing Product",
-      "description": "hello",
-      "brand": "Apple",
-      "category": "laptops",
-      "price": 222,
-      "discountPercentage": 10,
-      "stock": 0,
-      "thumbnail": "k",
-      "images": [
-        [
-          "a"
-        ],
-        "b",
-        "c",
-        "k"
-      ],
-      "rating": 0,
-      "deleted": true
-    },
-    {
-      "id": "7d85",
-      "title": "hope",
-      "description": "hope",
-      "brand": "Velvet Touch",
-      "category": "fragrances",
-      "price": 234,
-      "discountPercentage": 30,
-      "stock": 2,
-      "thumbnail": "q",
-      "images": [
-        "w",
-        "e",
-        "r",
-        "q"
-      ],
-      "rating": 0,
-      "deleted": true
-    },
-    {
-      "id": "cfb4",
-      "title": "111",
-      "description": "111",
-      "brand": "Dolce & Gabbana",
-      "category": "fragrances",
-      "price": 1111,
-      "discountPercentage": 11,
-      "stock": 11,
-      "thumbnail": "q",
-      "images": [
-        "w",
-        "e",
-        "r",
-        "q"
-      ],
-      "rating": 0,
-      "deleted": true
-    },
-    {
       "id": "7e60",
       "title": "new",
       "description": "avbgft",
@@ -6116,6 +6025,25 @@
         "f",
         "h",
         "s"
+      ],
+      "rating": 0,
+      "deleted": true
+    },
+    {
+      "id": "f6ba",
+      "title": "last p",
+      "description": "asasas",
+      "brand": "Essence",
+      "category": "fragrances",
+      "price": 232,
+      "discountPercentage": 5,
+      "stock": 2,
+      "thumbnail": "a",
+      "images": [
+        "s",
+        "d",
+        "f",
+        "a"
       ],
       "rating": 0
     }
