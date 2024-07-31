@@ -46,7 +46,7 @@ function ProductForm() {
 
 
   const handleDelete = () =>{
-    const product = {...selectedProduct};
+    const product = {...selectedProduct[0]};
     product.deleted = true;
    dispatch(updateProductAsync(product));
   }
