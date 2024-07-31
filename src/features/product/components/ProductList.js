@@ -542,6 +542,7 @@ function ProductGrid({ products }) {
                         product.price * (1 - product.discountPercentage / 100)
                       )}
                         {/* {discountedPrice(product)} */}
+
                     </p>
                     <p className="text-sm block line-through font-medium text-gray-400">
                       ${product.price}
