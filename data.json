@@ -6072,6 +6072,25 @@
       ],
       "rating": 0,
       "deleted": true
+    },
+    {
+      "id": "b827",
+      "title": "test1 watch",
+      "description": "testing 1",
+      "brand": "Rolex",
+      "category": "mens-watches",
+      "price": 500,
+      "discountPercentage": 10,
+      "stock": 5,
+      "thumbnail": "t1",
+      "image3": "i3",
+      "images": [
+        "i1",
+        "i2",
+        "i3",
+        "t1"
+      ],
+      "rating": 0
     }
   ],
   "total": 100,

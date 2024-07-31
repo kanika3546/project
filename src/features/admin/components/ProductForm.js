@@ -36,9 +36,9 @@ function ProductForm() {
       setValue('discountPercentage', selectedProduct[0].discountPercentage);
       setValue('thumbnail', selectedProduct[0].thumbnail);
       setValue('stock', selectedProduct[0].stock);
-      setValue('image1', selectedProduct[0].images);
-      // setValue('image2', selectedProduct.images);
-      // setValue('image3', selectedProduct.images);
+      setValue('image1', selectedProduct[0].images[0]);
+       setValue('image2', selectedProduct[0].images[1]);
+       setValue('image3', selectedProduct[0].images[2]);
       setValue('brand', selectedProduct[0].brand);
       setValue('category', selectedProduct[0].category);
     }
@@ -59,15 +59,15 @@ function ProductForm() {
  
        const product = { ...data };
         product.images = [
-          product.image1
-          // product.image2,
-          // product.image3,
-          // product.thumbnail,
+          product.image1,
+           product.image2,
+           product.image3,
+          product.thumbnail,
         ];
        product.rating = 0;
         delete product['image1'];
-        // delete product['image2'];
-        // delete product['image3'];
+         delete product['image2'];
+         delete product['image3'];
         product.price = +product.price;
         product.stock = +product.stock;
         product.discountPercentage = +product.discountPercentage;
@@ -288,7 +288,7 @@ function ProductForm() {
                 </div>
               </div>
             </div>
-{/* 
+
             <div className="sm:col-span-6">
               <label
                 htmlFor="image2"
@@ -308,11 +308,11 @@ function ProductForm() {
                   />
                 </div>
               </div>
-            </div> */}
+            </div>
 
-            {/* <div className="sm:col-span-6">
+            <div className="sm:col-span-6">
               <label
-                htmlFor="image2"
+                htmlFor="image3"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Image 3
@@ -329,7 +329,7 @@ function ProductForm() {
                   />
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
 
