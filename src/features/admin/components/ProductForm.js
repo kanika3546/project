@@ -36,23 +36,23 @@ function ProductForm() {
 
   useEffect(() => {
     if (selectedProduct && params.id) {
-      setValue('title', selectedProduct[0].title);
-      setValue('description', selectedProduct[0].description);
-      setValue('price', selectedProduct[0].price);
-      setValue('discountPercentage', selectedProduct[0].discountPercentage);
-      setValue('thumbnail', selectedProduct[0].thumbnail);
-      setValue('stock', selectedProduct[0].stock);
-      setValue('image1', selectedProduct[0].images[0]);
-       setValue('image2', selectedProduct[0].images[1]);
-       setValue('image3', selectedProduct[0].images[2]);
-      setValue('brand', selectedProduct[0].brand);
-      setValue('category', selectedProduct[0].category);
+      setValue('title', selectedProduct.title);
+      setValue('description', selectedProduct.description);
+      setValue('price', selectedProduct.price);
+      setValue('discountPercentage', selectedProduct.discountPercentage);
+      setValue('thumbnail', selectedProduct.thumbnail);
+      setValue('stock', selectedProduct.stock);
+      setValue('image1', selectedProduct.images[0]);
+       setValue('image2', selectedProduct.images[1]);
+       setValue('image3', selectedProduct.images[2]);
+      setValue('brand', selectedProduct.brand);
+      setValue('category', selectedProduct.category);
     }
   }, [selectedProduct, params.id, setValue]);
 
 
   const handleDelete = () =>{
-    const product = {...selectedProduct[0]};
+    const product = {...selectedProduct};
     product.deleted = true;
    dispatch(updateProductAsync(product));
   }
