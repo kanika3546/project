@@ -20,24 +20,7 @@ import {
 } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-const addresses = [
-  {
-    name: 'John wick',
-    street: '11th Main',
-    city: 'Delhi',
-    pinCode: 110001,
-    state: 'Delhi',
-    phone: 12312321331,
-  },
-  {
-    name: 'John Doe',
-    street: '15th Main',
-    city: 'Bangalore',
-    pinCode: 560034,
-    state: 'Karnataka',
-    phone: 123123123,
-  },
-];
+import { discountedPrice } from '../app/constants';
 
 
 function Checkout() {
@@ -48,7 +31,7 @@ const dispatch = useDispatch();
     reset,
     formState: { errors },
   } = useForm();
-  //const user = useSelector(selectLoggedInUser);
+  
   const user = useSelector(selectUserInfo );
   
 
@@ -56,14 +39,17 @@ const dispatch = useDispatch();
   const items = useSelector(selectItems);
   const currentOrder = useSelector(selectCurrentOrder);
   //const currentOrder = useSelector(selectCurrentOrder);
-  const totalAmount = items.reduce((amount, item)=>item.price*item.quantity + amount,0)
+  //const totalAmount = items.reduce((amount, item)=>item.price*item.quantity + amount,0);
+  
+  const totalAmount = items.reduce(
+    (amount, item) => discountedPrice(item.product) * item.quantity + amount,0);
   const totalItems = items.reduce((total, item)=>item.quantity + total,0);
 
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState('null');
 
 const handleQuantity =(e,item)=> {
-dispatch(updateCartAsync({...item, quantity: +e.target.value}))
+  dispatch(updateCartAsync({ id:item.id, quantity: +e.target.value }));
 };
 
 const handleRemove =(e,id)=> {
@@ -92,7 +78,7 @@ const handleRemove =(e,id)=> {
         items,
         totalAmount,
         totalItems,
-        user,
+        user:user.id,
         paymentMethod,
         selectedAddress,
         status: "pending" //other status can be delivered, received.
@@ -422,8 +408,8 @@ const handleRemove =(e,id)=> {
                 <li key={item.id} className="flex py-6">
                   <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                     <img
-                       src={item.thumbnail}
-                       alt={item.title}
+                       src={item.product.thumbnail}
+                       alt={item.product.title}
                       className="h-full w-full object-cover object-center"
                     />
                   </div>
@@ -432,12 +418,12 @@ const handleRemove =(e,id)=> {
                     <div>
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <h3>
-                        <a href={item.href}>{item.title}</a>
+                        <a href={item.product.id}>{item.product.title}</a>
                         </h3>
-                        <p className="ml-4">${item.price}</p>
+                        <p className="ml-4">${item.product.price}</p>
                       </div>
                       <p className="mt-1 text-sm text-gray-500">
-                        {item.brand}
+                        {item.product.brand}
                       </p>
                     </div>
                     <div className="flex flex-1 items-end justify-between text-sm">
