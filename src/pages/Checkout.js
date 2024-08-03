@@ -5,10 +5,8 @@ import {  selectItems, updateCartAsync , deleteItemFromCartAsync} from "../featu
 import { createOrderAsync, selectCurrentOrder} from "../features/order/orderSlice";
 import { useForm } from 'react-hook-form';
 import {
-
-  selectLoggedInUser,
   updateUserAsync,
-} from '../features/auth/authSlice';
+} from '../features/user/userSlice';
 import {  selectUserInfo } from '../features/user/userSlice';
 //import { selectCurrentOrder } from '../features/order/orderSlice';
 import {

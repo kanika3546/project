@@ -8,7 +8,7 @@ import { selectUserInfo, updateUserAsync } from '../userSlice';
 export default function UserProfile() {
   
   const dispatch = useDispatch();
-  const user = useSelector(selectUserInfo);
+  const userInfo = useSelector(selectUserInfo);
 
   
   const [selectedEditIndex, setSelectedEditIndex] = useState(-1);
@@ -25,38 +25,36 @@ export default function UserProfile() {
   //const user = useSelector(selectLoggedInUser);
  
 
-
-  const handleEditForm = (index) => {
-    setSelectedEditIndex(index);
-    const address = user.addresses[index];
-    setValue('name', address.name);
-    setValue('email', address.email);
-    setValue('city', address.city);
-    setValue('state', address.state);
-    setValue('pinCode', address.pinCode);
-    setValue('phone', address.phone);
-    setValue('street', address.street);
-  };
-
-  const handleAdd = (address)=>{
-    const newUser = { ...user, addresses: [...user.addresses, address] }; 
-    dispatch(updateUserAsync(newUser));
-    setShowAddAddressForm(false);
-  }
-
 const handleEdit =(addressUpdate, index)=>{
-  const newUser = { ...user, addresses: [...user.addresses] }; // for shallow copy issue
+  const newUser = { ...userInfo, addresses: [...userInfo.addresses] }; // for shallow copy issue
   newUser.addresses.splice(index, 1, addressUpdate);
   dispatch(updateUserAsync(newUser));
   setSelectedEditIndex(-1);
 };
 const handleRemove =(e, index)=>{
-  const newUser = { ...user, addresses: [...user.addresses] }; // for shallow copy issue
+  const newUser = { ...userInfo, addresses: [...userInfo.addresses] }; // for shallow copy issue
     newUser.addresses.splice(index, 1);
     dispatch(updateUserAsync(newUser));
 };
 
 
+const handleEditForm = (index) => {
+  setSelectedEditIndex(index);
+  const address = userInfo.addresses[index];
+  setValue('name', address.name);
+  setValue('email', address.email);
+  setValue('city', address.city);
+  setValue('state', address.state);
+  setValue('pinCode', address.pinCode);
+  setValue('phone', address.phone);
+  setValue('street', address.street);
+};
+
+const handleAdd = (address)=>{
+  const newUser = { ...userInfo, addresses: [...userInfo.addresses, address] };
+  dispatch(updateUserAsync(newUser));
+  setShowAddAddressForm(false);
+};
 
   return (
     <div>
@@ -65,13 +63,13 @@ const handleRemove =(e, index)=>{
        
 
           <h1 className="text-4xl my-3 font-bold tracking-tight text-gray-900">
-        Name: {user.name ? user.name: 'New User'}
+          Name: {userInfo.name ? userInfo.name : 'New User'}
           </h1>
           <h3 className="text-xl my-5 font-bold tracking-tight text-red-900">
-              Email Address: {user.email}
+              Email Address: {userInfo.email}
             </h3>
-           {user.role ==="admin" && (<h3 className="text-xl my-5 font-bold tracking-tight text-red-900">
-              role: {user.role}
+            {userInfo.role ==="admin" && (<h3 className="text-xl my-5 font-bold tracking-tight text-red-900">
+              role : {userInfo.role}
             </h3>)}
          <div>
            </div>
@@ -291,8 +289,9 @@ const handleRemove =(e, index)=>{
           </form> :null  }
           </div>
           
-          Your Address: {user.addresses.map((address,index)=>
-                    <div>
+          <p className="mt-0.5 text-sm text-gray-500">Your Addresses :</p>
+                      {userInfo.addresses.map((address, index) => (
+            <div key={index}>
                       {selectedEditIndex ===index ?
                        <form className="bg-white px-4 py-5 mt-10"
                         onSubmit={handleSubmit((data) => {
@@ -549,7 +548,8 @@ const handleRemove =(e, index)=>{
                   
                     </div>
                   
-                  </div>)}
+                  </div>
+          ))}
 
 
           <div className="mt-6 flex justify-center text-center text-sm text-gray-500">

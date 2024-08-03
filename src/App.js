@@ -133,13 +133,17 @@ const router = createBrowserRouter([
   {
     path: '/order-success/:id',
     element: (
-      <OrderSuccessPage></OrderSuccessPage>
+      <Protected>
+      <OrderSuccessPage></OrderSuccessPage>{' '}
+    </Protected>
     ),
   },
   {
     path: '/orders',
     element: (
-      <UserOrdersPage></UserOrdersPage>
+      <Protected>
+      <UserOrdersPage></UserOrdersPage>{' '}
+    </Protected>
       // we will add Page later right now using component directly.
     ),
   },
@@ -147,9 +151,9 @@ const router = createBrowserRouter([
   {
     path: '/profile',
     element: (
-      // <UserProfile></UserProfile>
-     // <UserProfilePage></UserProfilePage>
-     <UserProfilePage></UserProfilePage>
+      <Protected>
+      <UserProfilePage></UserProfilePage>{' '}
+    </Protected>
       // we will add Page later right now using component directly.
     ),
   },
