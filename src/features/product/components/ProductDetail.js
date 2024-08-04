@@ -4,9 +4,9 @@ import { Radio, RadioGroup } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductByIdAsync, selectProductById } from '../productSlice';
 import { addToCartAsync , selectItems} from '../../cart/cartSlice';
-import { selectLoggedInUser } from '../../auth/authSlice';
+
 import { useParams } from 'react-router-dom';
-import { discountedPrice } from '../../../app/constants';
+
 import { useAlert } from 'react-alert';
 
 //TODO : IN SERVER DATA WE WILL ADD COLORS, SIZES , HIGHLIGHTS
@@ -44,7 +44,7 @@ function classNames(...classes) {
 export default function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState(colors[0])
   const [selectedSize, setSelectedSize] = useState(sizes[2])
-   const user = useSelector(selectLoggedInUser);
+   //const user = useSelector(selectLoggedInUser);
    const items = useSelector(selectItems);
  const product = useSelector(selectProductById);
  const dispatch = useDispatch();
@@ -61,8 +61,7 @@ if (items.findIndex((item) => item.product.id === product.id) < 0) {
   const newItem = {
 
     product : product.id,
-    quantity: 1,
-    user: user.id,
+    quantity: 1
   };
 
   dispatch(addToCartAsync(newItem));
@@ -115,7 +114,7 @@ if (items.findIndex((item) => item.product.id === product.id) < 0) {
         <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
           <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
             <img
-              src={product.images[0]}
+              src={product.images?.[0]}
               alt={product.title}
               className="h-full w-full object-cover object-center"
             />
@@ -125,7 +124,7 @@ if (items.findIndex((item) => item.product.id === product.id) < 0) {
           <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
             <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
               <img
-             src={product.images[1]}
+             src={product.images?.[1]}
              alt={product.title}
                 className="h-full w-full object-cover object-center"
               />
@@ -133,7 +132,7 @@ if (items.findIndex((item) => item.product.id === product.id) < 0) {
             
             <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
               <img
-               src={product.images[2]}
+               src={product.images?.[2]}
                alt={product.title}
                 className="h-full w-full object-cover object-center"
               />
@@ -141,7 +140,7 @@ if (items.findIndex((item) => item.product.id === product.id) < 0) {
           </div>
           <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
             <img
-               src={product.images[3]}
+               src={product.images?.[0]}
                alt={product.title}
               className="h-full w-full object-cover object-center"
             />
