@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {  selectItems, updateCartAsync , deleteItemFromCartAsync,  selectCartStatus, } from './cartSlice';
+import {  selectItems, updateCartAsync , deleteItemFromCartAsync,  selectCartStatus, selectCartLoaded } from './cartSlice';
 import { Link,Navigate } from "react-router-dom";
 
 import { Grid } from 'react-loader-spinner';
@@ -20,6 +20,7 @@ export default function Cart() {
 
 const dispatch = useDispatch();
 const status = useSelector(selectCartStatus);
+const cartLoaded = useSelector(selectCartLoaded);
 const [openModal, setOpenModal] = useState(null);
 
 
@@ -45,7 +46,7 @@ const handleRemove =(e,id)=> {
 
   return (
     <>
-      {!items.length && <Navigate to='/' replace={true}></Navigate>}
+      {!items.length && cartLoaded &&<Navigate to='/' replace={true}></Navigate>}
       <div className="mx-auto mt-8 max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="border-t bg-white border-gray-200 px-4 py-6 sm:px-6">
           <h1 className="text-4xl my-3 font-bold tracking-tight text-gray-900">
