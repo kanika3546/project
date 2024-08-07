@@ -28,6 +28,9 @@ import AdminOrdersPage from './pages/AdminOrdersPage';
 import UserOrdersPage from './pages/UserOrdersPage';
 import UserProfilePage from './pages/UserProfilePage';
 import UserOrders from './features/user/components/UserOrders';
+import Client  from './pages/Client';
+// import Status from './pages/Status'
+
 
 import { createRoot } from "react-dom/client";
 import {
@@ -154,7 +157,15 @@ const router = createBrowserRouter([
       <Protected>
       <UserProfilePage></UserProfilePage>{' '}
     </Protected>
-      // we will add Page later right now using component directly.
+ 
+    ),
+  },
+  {
+    path: '/phone-pe/',
+    element: (
+ 
+        <Client />
+ 
     ),
   },
   {
@@ -181,10 +192,10 @@ function App() {
   const user = useSelector(selectLoggedInUser);
   const userChecked = useSelector(selectUserChecked);
 
-useEffect(()=>{
-  dispatch(checkAuthAsync())
-},[])
 
+  useEffect(()=>{
+    dispatch(checkAuthAsync())
+  },[dispatch])
 
   useEffect(()=>{
     

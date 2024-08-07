@@ -54,7 +54,7 @@ export function checkAuth() {
     }
  
   } catch (error) {
-    reject( error )
+    reject( error );
     }
       
   
