@@ -44,6 +44,7 @@ import { fetchLoggedInUserAsync } from './features/user/userSlice';
 import { positions, Provider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 
+import NftsPage from './pages/NftsPage';
 
 
 const options = {
@@ -157,6 +158,14 @@ const router = createBrowserRouter([
       <Protected>
       <UserProfilePage></UserProfilePage>{' '}
     </Protected>
+ 
+    ),
+  },
+  {
+    path: '/nftmarket',
+    element: (
+ 
+        <NftsPage />
  
     ),
   },

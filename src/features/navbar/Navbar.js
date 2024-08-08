@@ -23,7 +23,7 @@ import { selectUserInfo } from '../user/userSlice';
 
 const navigation = [
   { name: 'Products', link: '/', user: true },
-
+  { name: 'NFT-Market',link:'/nftmarket', user: true },
   { name: 'Products-admin', link: '/admin', admin: true },
   { name: 'Orders', link: '/admin/orders', admin: true },
 ];
