@@ -136,7 +136,7 @@ export default function AdminProductDetail() {
               <h2 className="sr-only">Product information</h2>
               <p className="text-3xl tracking-tight text-gray-900">{product.price}</p>
               <p className="text-xl line-through  tracking-tight text-gray-900">
-                ${discountedPrice(product)}
+              Rs.{discountedPrice(product)}
               </p>
   
               {/* Reviews */}

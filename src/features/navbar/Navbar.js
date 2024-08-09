@@ -24,6 +24,7 @@ import { selectUserInfo } from '../user/userSlice';
 const navigation = [
   { name: 'Products', link: '/', user: true },
   { name: 'NFT-Market',link:'/nftmarket', user: true },
+  { name: 'NFT-Market',link:'/nftmarket', admin: true },
   { name: 'Products-admin', link: '/admin', admin: true },
   { name: 'Orders', link: '/admin/orders', admin: true },
 ];
@@ -56,7 +57,8 @@ function Navbar({ children }) {
                       <Link to="/">
                       <img
                         className="h-8 w-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                       // src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                       src="De.jpeg"
                         //put your own logo
                         alt="Your Company"
                       />
@@ -111,7 +113,8 @@ function Navbar({ children }) {
                             <span className="sr-only">Open user menu</span>
                             <img
                               className="h-8 w-8 rounded-full"
-                              src={userInfo.imageUrl}
+                            //  //  src={//userInfo.imageUrl}
+                                src="De3.jpeg"
                               alt=""
                             />
                           </MenuButton>
