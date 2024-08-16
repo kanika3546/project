@@ -1,5 +1,4 @@
 import NavBar from '../features/navbar/Navbar';
-//import UserOrders from '../features/user/components/UserOrders';
 import Hero from '../features/nft/Hero';
 import HotProducts from '../features/nft/HotProducts';
 function NftsPage() {

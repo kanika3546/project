@@ -26,16 +26,12 @@ export const sendTransaction = async (toAddress, amount) => {
       try {
         // Request account access
         const account = await requestAccount();
-  
         // Create a provider
         const provider = new JsonRpcProvider.providers.Web3Provider(window.ethereum);
-  
         // Get the signer
         const signer = provider.getSigner();
-  
         // Convert amount to wei
         const valueInWei = JsonRpcProvider.utils.parseEther(amount.toString());
-  
         // Create transaction parameters
         const tx = {
           to: toAddress, // Address to send ETH

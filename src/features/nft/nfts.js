@@ -3,7 +3,7 @@ const nfts = [
   {
     img: "images/nfts/nft1.jpg",
     title: 'Deep Sea Phantasy',
-    price: '20.5',
+    price: '2.5',
     likes: '22',
     sale: true,
   },
@@ -17,7 +17,7 @@ const nfts = [
   {
     img: "images/nfts/nft3.jpg",
     title: 'Crypto Egg Stamp',
-    price: '10.5',
+    price: '8.5',
     likes: '122',
     sale: false,
   },

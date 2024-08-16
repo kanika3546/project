@@ -148,7 +148,7 @@ const router = createBrowserRouter([
       <Protected>
       <UserOrdersPage></UserOrdersPage>{' '}
     </Protected>
-      // we will add Page later right now using component directly.
+   
     ),
   },
   

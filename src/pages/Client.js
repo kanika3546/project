@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
 import {resetOrder} from "../features/order/orderSlice";
 
+
 const Client = () => {
   const navigate = useNavigate();
   const params = useParams() 
@@ -45,8 +46,11 @@ const Client = () => {
 
   return (
     <form onSubmit={handlePayment}>
-      <div className='col-12 center'>
-        <button className='w-100' type="submit">Pay Now</button>
+      {/* <div className='col-12 center'> */}
+      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <button className="bg-purple-700 text-white px-6 py-3 rounded-md hover:bg-purple-800 transition-colors duration-300">
+        {/* <button className='w-100' type="submit"> */}
+          Pay Now</button>
       </div>
     </form>
   );
